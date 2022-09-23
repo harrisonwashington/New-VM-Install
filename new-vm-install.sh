@@ -16,3 +16,16 @@ wget https://code.visualstudio.com/docs/?dv=linux64_deb
 
 # Visual Studio Code apt install
 sudo apt install code -y
+
+# brew install 
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# add Homebrew to PATH:
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /root/.profile
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Install Homebrew's dependencies
+sudo apt-get install build-essential
+
+# brew Formulaes
+brew install gcc fish btop 
