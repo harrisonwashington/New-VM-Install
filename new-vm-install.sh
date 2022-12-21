@@ -2,17 +2,11 @@
 # new vm install script
 
 # Update package index and install the necessary dependencies
-sudo apt update && apt upgrade -y
-sudo apt install git python3-pip software-properties-common apt-transport-https wget -y
+sudo apt update && sudo apt upgrade -y
+sudo apt install htop fish git flatpak apt-transport-https wget -y
 
-# Import the Microsoft GPG key
-wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+# Add the flathub repository
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-# Enable the Visual Studio Code repository
-sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-
-# Visual Studio Code Deb file install with wget & package update
-wget https://code.visualstudio.com/docs/?dv=linux64_deb
-
-# Visual Studio Code apt install
-sudo apt install code -y
+# Install flathub apps
+flatpak install flathub com.visualstudio.code flathub com.google.Chrome flathub com.brave.Browser -y
